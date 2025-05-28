@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Organisasi Remaja untuk Pengelolaan Sampah di Desa</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-green-50 font-sans">
+  <!-- Header -->
+  <header class="bg-green-600 text-white p-6 text-center shadow">
+    <h1 class="text-3xl font-bold">Organisasi Remaja untuk Pengelolaan Sampah di Desa</h1>
+    <p class="text-lg mt-2">Lakukan aksi kebersihan, banggakan desamu</p>
+  </header>
+
+  <!-- Konten -->
+  <main class="max-w-3xl mx-auto p-6">
+    <!-- Tentang Kami -->
+    <section class="bg-white p-6 rounded-lg shadow mb-6">
+      <h2 class="text-2xl font-semibold mb-4">Tentang Kami</h2>
+      <p>
+        Organisasi ini terdiri dari para remaja yang bekerja untuk pengelolaan sampah dan kesadaran lingkungan di desa. Kami mendorong warga desa untuk mendaur ulang, membuang sampah di tempat yang benar, dan berpartisipasi dalam menjaga lingkungan.
+      </p>
+    </section>
+
+    <!-- Formulir Unggah Gambar -->
+    <section class="bg-white p-6 rounded-lg shadow mb-6">
+      <h2 class="text-2xl font-semibold mb-4">Unggah Gambar Anda</h2>
+      <form id="imageUploadForm" class="space-y-4">
+        <input type="file" id="imageInput" accept="image/*" class="block w-full border border-gray-300 rounded px-3 py-2">
+        <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Unggah</button>
+      </form>
+      <div id="previewContainer" class="mt-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4"></div>
+    </section>
+
+    <!-- Kontak -->
+    <section class="bg-white p-6 rounded-lg shadow mb-6">
+      <h2 class="text-2xl font-semibold mb-4">Hubungi Kami</h2>
+      <p>Email: <a href="mailto:gramkormi@gmail.com" class="text-green-700 underline">gramkormi@gmail.com</a></p>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-green-600 text-white text-center p-4">
+    &copy; 2025 Organisasi Remaja Peduli Sampah Desa
+  </footer>
+
+  <!-- Script Pratinjau Gambar -->
+  <script>
+    document.getElementById('imageUploadForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const input = document.getElementById('imageInput');
+      const container = document.getElementById('previewContainer');
+
+      if (input.files && input.files[0]) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          const img = document.createElement('img');
+          img.src = e.target.result;
+          img.className = 'w-full h-48 object-cover rounded';
+          container.appendChild(img);
+        };
+        reader.readAsDataURL(input.files[0]);
+      }
+    });
+  </script>
+</body>
+</html>
